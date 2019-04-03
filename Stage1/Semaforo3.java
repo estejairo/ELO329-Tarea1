@@ -1,8 +1,8 @@
 import java.util.Timer;
 import java.io.*;
 import java.util.Scanner;
-import java.time.LocalTime;
-import java.time.Duration;
+//import java.time.LocalTime;
+//import java.time.Duration;
 public class Semaforo3{
     
     boolean red,green,yellow;
@@ -42,5 +42,16 @@ public class Semaforo3{
         return yellowTime;
     }
 
-    //public String toString() {}
+    public String toString() {
+        if (red){
+            return("2");
+        }
+        else if (yellow){
+            return("1");
+        }
+        else{
+            return("0");
+        }
+
+    }   
 }
