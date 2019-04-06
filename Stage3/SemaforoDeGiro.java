@@ -1,8 +1,8 @@
 import java.util.Timer;
 import java.io.*;
 import java.util.Scanner;
-import java.time.LocalTime;
-import java.time.Duration;
+//import java.time.LocalTime;
+//import java.time.Duration;
 
 public class SemaforoDeGiro{
 
@@ -12,10 +12,10 @@ public class SemaforoDeGiro{
 
     public SemaforoDeGiro(int greenTime, int blinkingTime) {
     }
-    public void turnRedLightOn() {
-        green=false;
-        red=true;
-    }
+    //public void turnRedLightOn() {
+    //    green=false;
+    //    red=true;
+    //}
     public void turnGreenLightOn() {
         green=true;
         red=false;
