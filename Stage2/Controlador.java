@@ -3,6 +3,8 @@ public class Controlador{
     SemaforoP semp;
     DetectorRequerimiento boton;
     public Controlador(DetectorRequerimiento boton, SemaforoP semp){
+        this.boton=boton;
+        this.semp=semp;
     }
     public void run(){
         try {
@@ -14,6 +16,6 @@ public class Controlador{
         }
     }
     public manageTraffic()throws Exception{
-//esto es un comentario
+        semp.turnRedLightOn();
     }
 }
