@@ -24,7 +24,7 @@ public class SimuladorEntradas implements ActionListener{
         }
         else {
             entrada.close();
-            exit(0);
+            System.exit(0);
         }
         
     }
