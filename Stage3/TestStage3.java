@@ -1,12 +1,32 @@
 import java.io.*;
+import java.awt.event.*;
+import javax.swing.*;
 import java.util.Scanner;
-import java.time.LocalTime;
-import java.time.Duration;
-import java.util.Timer;
+
+
 public class TestStage3{
-    DetectorRequerimiento sI = new DetectorRequerimiento();
-    String flnm = "000010000000000000000010100000000000000000100000000000000000000000000000000000000000001000000100000000000000000000000000100000000000000000000000001000000000"
-    ActionListener entradas = new SimuladorEntradas(sI, String flnm);
-    Timer t = new Timer(1000, entradas);
-    t.start();
+    public static void main(String  args[]) throws FileNotFoundException{
+        String filename = args[0];
+        int greenTime = 30;
+        int blinkingTime=10;
+        
+
+        File file = new File(filename);
+        try(Scanner entrada = new Scanner(file);){
+            SemaforoDeGiro semaforo = new SemaforoDeGiro(greenTime, blinkingTime);
+            DetectorRequerimiento sensorInductivo = new DetectorRequerimiento();
+            ActionListener entradas = new SimuladorEntradas(sensorInductivo, entrada);
+            Controlador ctrl = new Controlador(sensorInductivo, semaforo);
+       
+            Timer t = new Timer(1000, entradas);
+            t.start();
+            ctrl.manageTraffic();
+        } catch (FileNotFoundException e) {
+            System.out.println(e);
+            System.exit(0);
+        }
+             
+
+        
+    }
 }

@@ -1,29 +1,29 @@
 import java.util.Scanner;
-import java.io.File;
+import java.io.*;
+import java.awt.event.*;
+import javax.swing.*;
 
-public class SimuladorEntradas implements ActionListener{
-    DetectorDeRequerimiento sensorInductivo;
-    String filename;
-
-
-    File file = new File(filename);
-    Scanner entrada = new Scanner(file);
+public class SimuladorEntradas implements ActionListener {
+    DetectorRequerimiento sensorInductivo;
+    Scanner filename;
+    //Scanner entrada;
     String linea;
 
-    public SimuladorEntradas(DetectorDeRequerimiento sI, String flnm) {
+    public SimuladorEntradas(DetectorRequerimiento sI, Scanner flnm) {
         sensorInductivo = sI;
         filename = flnm;
     }
+
+
     public void actionPerformed(ActionEvent event) {
-        sensorInductivo.setOn();
-        if (entrada.hasNextLine()) {
-            linea = entrada.nextLine();
-            if (linea=="1"){
+        if (filename.hasNextLine()) {
+            linea = filename.nextLine();
+            if ((linea.compareTo("1"))==0){                
                 sensorInductivo.setOn();
             }
         }
         else {
-            entrada.close();
+            filename.close();
             System.exit(0);
         }
         

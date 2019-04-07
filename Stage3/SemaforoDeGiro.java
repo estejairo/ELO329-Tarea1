@@ -1,27 +1,19 @@
-import java.util.Timer;
-import java.io.*;
-import java.util.Scanner;
-//import java.time.LocalTime;
-//import java.time.Duration;
-
 public class SemaforoDeGiro{
 
     int greenTimeP,blinkTime;
 
-    boolean red,green;
+    boolean green;
 
-    public SemaforoDeGiro(int greenTime, int blinkingTime) {
+    public SemaforoDeGiro(int gT, int bT) {
+        greenTimeP = gT;
+        blinkTime = bT;
     }
-    //public void turnRedLightOn() {
-    //    green=false;
-    //    red=true;
-    //}
+
     public void turnGreenLightOn() {
         green=true;
-        red=false;
     }
     public void turnGreenLightOff() {
-
+        green=false;
     }
     public int getGreenLightTime() {
         return greenTimeP; 
@@ -30,6 +22,11 @@ public class SemaforoDeGiro{
         return blinkTime;
     }
     public String toString(){
-        return null;
+        if (green){
+            return("1");
+        }
+        else{
+            return("0");
+        }
     }
 }

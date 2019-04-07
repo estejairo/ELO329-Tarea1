@@ -1,7 +1,7 @@
 public class DetectorRequerimiento{
     boolean state;
     
-    public boolean isON(){
+    public boolean isOn(){
         return state;
     }
     public void setOn(){
