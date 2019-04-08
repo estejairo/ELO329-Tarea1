@@ -3,12 +3,11 @@ import java.awt.event.*;
 import javax.swing.*;
 import java.util.Scanner;
 
-
 public class TestStage3{
     public static void main(String  args[]) throws FileNotFoundException{
         String filename = args[0];
         int greenTime = 30;
-        int blinkingTime=10;
+        int blinkingTime = 2;
         
 
         File file = new File(filename);

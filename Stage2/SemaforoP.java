@@ -8,19 +8,23 @@ public class SemaforoP{
 
     int greenTimeP,blinkTime;
 
-    boolean red,green;
+    boolean red = true;
+    boolean green;
 
     public SemaforoP(int greenTime, int blinkingTime) {
+        this.greenTimeP=greenTime;
+        this.blinkTime=blinkingTime;
     }
     public void turnRedLightOn() {
-        green=false;
         red=true;
+        green=false;
     }
     public void turnGreenLightOn() {
         green=true;
         red=false;
     }
     public void turnGreenLightOff() {
+        green=false;
 
     }
     public int getGreenLightTime() {
@@ -30,6 +34,14 @@ public class SemaforoP{
         return blinkTime;
     }
     public String toString(){
-        return null;
+        if (green){
+            return("1");
+        }
+        else if(red){
+                return("0");
+            }
+        else{
+            return(" ");
+        }
     }
 }
