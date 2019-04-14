@@ -22,18 +22,18 @@ Cada etapa es compilada y ejecutada de manera independiente. Para compilar una e
 
 ## Ejecución
 
-La ejecución de cada etapa (luego de haberla compilado) se adjunta a continuación:
+La ejecución de cada etapa (luego de haberla compilado) se adjunta a continuación:<p>
 
-Stage 1:
-java TestStage1 <tiempo total del semaforo> <tiempo en verde>
+Stage 1:<br>
+java TestStage1 {tiempo total del semaforo} {tiempo en verde}<br>
 
-Stage 2:
-java TestStage2 <entrada.txt>
-(entrada.txt corresponde a lineas con 1 y 0 que simulan el presionar un boton del cruce peatonal)
+Stage 2:<br>
+java TestStage2 {entrada.txt}<br>
+(entrada.txt corresponde a lineas con 1 y 0 que simulan el presionar un boton del cruce peatonal)<br>
 
-Stage 4:
-java TestStage3 <entrada.txt>
-(entrada.txt corresponde a lineas con 1 y 0 que simulan el accionar de un sensor de cruce vehicular)
+Stage 4:<br>
+java TestStage3 {entrada.txt}<br>
+(entrada.txt corresponde a lineas con 1 y 0 que simulan el accionar de un sensor de cruce vehicular)<br>
 
 Stage 4:
 
