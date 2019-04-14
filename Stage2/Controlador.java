@@ -22,7 +22,7 @@ public class Controlador extends Thread{
     public void manageTraffic(){
         int counter = 0;//Variable lleva el conteo del tiempo transcurrido
         while (true) {//Se opera indefinidamente
-            if (boton.isON()){// Si hay un requerimiento, se opera el semaforo
+            if (boton.isOn()){// Si hay un requerimiento, se opera el semaforo
                 boton.setOff();// Al comenzar a atenderlo, se apaga el requerimiento
                 semp.turnGreenLightOn();//Se enciende la luz verde (lo que era requerido)
                 System.out.println(counter+"\t"+semp);//Se imprime el tiempo y el estado
