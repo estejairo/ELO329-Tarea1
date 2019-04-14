@@ -39,9 +39,6 @@ public class TestStage3{
         } catch (FileNotFoundException e) {
             System.out.println(e);
             System.exit(0);
-        }
-             
-
-        
+        }        
     }
 }

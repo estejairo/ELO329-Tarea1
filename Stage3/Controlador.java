@@ -64,7 +64,7 @@ public class Controlador extends Thread{
             } catch(InterruptedException e){
                 System.out.println(e);
             }
-            System.out.println(counter+"\t"+semg); //Se imprime el estado actual del requerimiento
+            System.out.println(counter+"\t"+semg); //Se imprime el estado actual del semaforo
         }
         
     }
