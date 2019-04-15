@@ -34,15 +34,16 @@ public class Controlador extends Thread{
     }
 
     public void manageTraffic(){
-
+        int counter = 0;
+        System.out.println("time\tsemp_p\tsemp_m\tsemg\ts_pvaln\ts_pvin\ts_mat");
         while(true){
-
             //Verde y amarillo de placeres
             if((currentGreenTime < sem_plac_vina.greenTime)&&(sem_plac_vina.green)){
                 if ((botonmata.isOn())&&(currentGreenTime<(sem_plac_vina.greenTime*0.8))){
                     botonmata.setOff();
                     serving_botonmata = true;
                     semp_mata.turnGreenLightOn();
+                    currentGreenTime += 1;
                 }
                 else if ((botonplaceres.isOn())&&(currentGreenTime>(sem_plac_vina.greenTime*0.5))){
                     currentGreenTime = sem_plac_vina.greenTime;
@@ -52,14 +53,14 @@ public class Controlador extends Thread{
                 }
             }
             else if ((currentGreenTime == sem_plac_vina.greenTime)&&(sem_plac_vina.green)){
-                    serving_sensorInductivo = true;
-                    sem_plac_valpo.turnYellowLightON();
+                    sem_plac_vina.turnYellowLightON();
                     semp_mata.turnGreenLightOff();
                     if (sensorInductivo.isOn()){
+                        serving_sensorInductivo = true;
                         currentGreenTime = 1;
                     }
                     else{
-                        sem_plac_vina.turnYellowLightON();
+                        sem_plac_valpo.turnYellowLightON();
                         currentGreenTime = 1;  
                     }   
             }
@@ -75,14 +76,14 @@ public class Controlador extends Thread{
                 currentYellowTime += 1;
             }
             else if ((currentYellowTime == sem_plac_vina.yellowTime)&&(sem_plac_vina.yellow)){
-                if (botonplaceres.isOn()){
+                if (botonplaceres.isOn()&&(!serving_sensorInductivo)){
                     botonplaceres.setOff();
                     serving_botonplaceres = true;
                     semp_plac.turnGreenLightOn();
                 }
                 semp_mata.turnRedLightOn();
                 serving_botonmata = false;
-                sem_plac_valpo.turnRedLightON();
+                sem_plac_vina.turnRedLightON();
 
                 if (serving_sensorInductivo){
                     semg.turnGreenLightOn();
@@ -90,7 +91,7 @@ public class Controlador extends Thread{
                 }
                 else{
                     sem_mata.turnGreenLightON();
-                    sem_plac_vina.turnRedLightON();
+                    sem_plac_valpo.turnRedLightON();
                     currentYellowTime = 1;
                 }
             }
@@ -102,8 +103,8 @@ public class Controlador extends Thread{
             }
             else if ((currentGreenTime == semg.greenTimeP)&&(semg.green)){
                 semg.turnGreenLightOff();
-                sem_plac_vina.turnYellowLightON();
-                currentGreenTime = 1;
+                sem_plac_valpo.turnYellowLightON();
+                currentGreenTime = semg.greenTimeP+1;
             }
             else if ((currentYellowTime < sem_plac_valpo.yellowTime)&&(sem_plac_valpo.yellow)&&(serving_sensorInductivo)){
                 if (semg.green){
@@ -115,9 +116,16 @@ public class Controlador extends Thread{
                 currentYellowTime += 1;
             }
             else if ((currentYellowTime == sem_plac_valpo.yellowTime)&&(sem_plac_valpo.yellow)&&(serving_sensorInductivo)){
+                if (botonplaceres.isOn()&&(!serving_sensorInductivo)){
+                    botonplaceres.setOff();
+                    serving_botonplaceres = true;
+                    semp_plac.turnGreenLightOn();
+                }
                 sem_mata.turnGreenLightON();
-                sem_plac_vina.turnRedLightON();
+                sem_plac_valpo.turnRedLightON();
                 semg.turnGreenLightOff();
+                serving_sensorInductivo = false;
+                currentGreenTime = 1;
                 currentYellowTime = 1;                
             }
             /////////////////////////////////////////////////////////////
@@ -166,40 +174,16 @@ public class Controlador extends Thread{
                 sem_plac_vina.turnGreenLightON();
                 currentYellowTime = 1;
             }
-
-            
-            /*
-            //Estado matta
-            //al principio de este se puede atender peatonal matta
-            sem_mata.turnGreenLightOn();
-            sem_plac_valpo.turnRedLightON();
-            sem_plac_vina.turnRedLightON();
-
-            //Transicion matta placeres
-            sem_mata.turnYellowLightON();
-            
-            //Estado placeres
-            //al principio de este se puede atender peatonal matta
-            sem_mata.turnRedLightON();
-            sem_plac_valpo.turnGreenLightOn();
-            sem_plac_vina.turnGreenLightOn();
-            /*al final de este se puede atender el giro
-
-            //Transicion placeres matta
-            sem_plac_valpo.turnYellowLightON();
-            sem_plac_vina.turnYellowLightON();
-
-            //Transicion placeres giro
-            sem_plac_valpo.turnYellowLightON();
-
-            //Estado giro
-            semg.turnGreenLightOn();
-
-            //Transicion giro matta
-            sem_plac_vina.turnYellowLightON();
-            //semg blinking y termina off
-
-            */
+            else{
+                System.out.println("Caimos en un estado fantasma :C");
+            }
+            System.out.println(counter+"\t"+semp_plac+"\t"+semp_mata+"\t"+semg+"\t"+sem_plac_valpo+"\t"+sem_plac_vina+"\t"+sem_mata+"\t");
+            try{
+                Thread.sleep(1000); //Si no hay requerimiento, se espera un segundo
+                counter = counter + 1;  //Se agrega el tiempo transcurrido al contador
+            } catch(InterruptedException e){
+                System.out.println(e);
+            }            
         }
     }
 }

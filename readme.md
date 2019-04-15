@@ -2,10 +2,6 @@
 
 Este repositorio contiene codigo fuente que simula el comportamiento de los semaforos presentes en una intersección vial. Se separa en 4 etapas incrementales, donde la primera etapa corresponde a un semaforo simle de 3 luces; la segunda etapa representa un semaforo peatonal; la tercera etapa simula una luz de giro; la cuarta etapa es la integracion de todos los semaforos en la interseccion vial.
 
-## Getting Started
-
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
-
 ### Prerequisitos
 
 El código está diseñado para ser compilado y ejecutado en sistemas operativos Linux.
@@ -28,12 +24,12 @@ Stage 1:<br>
 java TestStage1 {tiempo total del semaforo} {tiempo en verde}<br>
 
 Stage 2:<br>
-java TestStage2 {entrada.txt}<br>
-(entrada.txt corresponde a lineas con 1 y 0 que simulan el presionar un boton del cruce peatonal)<br>
+java TestStage2 {entrada.csv}<br>
+(entrada.csv corresponde a lineas con 1 y 0 que simulan el presionar de un boton del cruce peatonal)<br>
 
 Stage 4:<br>
-java TestStage3 {entrada.txt}<br>
-(entrada.txt corresponde a lineas con 1 y 0 que simulan el accionar de un sensor de cruce vehicular)<br>
+java TestStage3 {entrada.csv}<br>
+(entrada.csv corresponde a lineas con 1 y 0 que simulan el accionar de un sensor de cruce vehicular)<br>
 
 Stage 4:
 
