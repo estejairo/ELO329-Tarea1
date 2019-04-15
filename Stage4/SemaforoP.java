@@ -1,8 +1,7 @@
 import java.util.Timer;
 import java.io.*;
 import java.util.Scanner;
-import java.time.LocalTime;
-import java.time.Duration;
+
 
 public class SemaforoP{
 
