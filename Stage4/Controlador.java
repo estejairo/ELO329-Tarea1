@@ -183,40 +183,7 @@ public class Controlador extends Thread{
                 counter = counter + 1;  //Se agrega el tiempo transcurrido al contador
             } catch(InterruptedException e){
                 System.out.println(e);
-            }
-            
-            /*
-            //Estado matta
-            //al principio de este se puede atender peatonal matta
-            sem_mata.turnGreenLightOn();
-            sem_plac_valpo.turnRedLightON();
-            sem_plac_vina.turnRedLightON();
-
-            //Transicion matta placeres
-            sem_mata.turnYellowLightON();
-            
-            //Estado placeres
-            //al principio de este se puede atender peatonal matta
-            sem_mata.turnRedLightON();
-            sem_plac_valpo.turnGreenLightOn();
-            sem_plac_vina.turnGreenLightOn();
-            /*al final de este se puede atender el giro
-
-            //Transicion placeres matta
-            sem_plac_valpo.turnYellowLightON();
-            sem_plac_vina.turnYellowLightON();
-
-            //Transicion placeres giro
-            sem_plac_valpo.turnYellowLightON();
-
-            //Estado giro
-            semg.turnGreenLightOn();
-
-            //Transicion giro matta
-            sem_plac_vina.turnYellowLightON();
-            //semg blinking y termina off
-
-            */
+            }            
         }
     }
 }
