@@ -14,8 +14,8 @@ public class SimuladorEntradas implements ActionListener {
     public SimuladorEntradas(DetectorRequerimiento sI, DetectorRequerimiento bm,DetectorRequerimiento bp  ,Scanner flnm) {
         sensorInductivo = sI;
         filename = flnm;
-	botonMata = bm;
-	botonPlaceres = bp;
+	    botonMata = bm;
+	    botonPlaceres = bp;
     }
 
 
@@ -23,9 +23,9 @@ public class SimuladorEntradas implements ActionListener {
         if (filename.hasNextLine()) {
             linea = filename.nextLine();
 	    //placeres - mata - inductivo
-	    String[] seq = linea.split(",");
-	    if((seq[0].compareTo("1"))==0){//prender Sem. mata}
-	    if((seq[1].compareTo("1"))==0){//prender Sem. mata}
+	    String[] seq = linea.split(" ");
+	    if((seq[0].compareTo("1"))==0){bp.setOn()}
+	    if((seq[1].compareTo("1"))==0){bm.setOn()}
 	    if((seq[2].compareTo("1"))==0){sensorInductivo.setOn()}
 
 	    
