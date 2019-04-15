@@ -6,8 +6,8 @@ import java.util.Scanner;
 public class TestStage4{
     public static void main(String  args[]) throws FileNotFoundException{
         String filename = args[0];
-        int greenTime = 30;
-        int blinkingTime = 2;
+        int greenTime = 12;
+        int blinkingTime = 6;
         
 
         File file = new File(filename);
@@ -24,9 +24,20 @@ public class TestStage4{
             DetectorRequerimiento boton_mata = new DetectorRequerimiento();
             DetectorRequerimiento boton_placeres = new DetectorRequerimiento();
             DetectorRequerimiento botones []={boton_mata,boton_placeres};
-            ActionListener entradas = new SimuladorEntradas(sensorInductivo, entrada);
+            ActionListener entradas = new SimuladorEntradas(boton_mata, boton_placeres, sensorInductivo, entrada);
             Controlador ctrl = new Controlador(semaforos3,botones,sensorInductivo,semaforosP,sem_giro);
        
+            //Estado inicial
+            semp_mata.turnRedLightOn();
+            semp_plac.turnRedLightOn();
+            sem_mata.turnRedLightON();
+            sem_valpo_vina.turnGreenLightON();
+            sem_vina_valpo.turnGreenLightON();
+            sem_giro.turnGreenLightOff();
+            sensorInductivo.setOff();
+            boton_mata.setOff();
+            boton_placeres.setOff();
+
             Timer t = new Timer(1000, entradas);
             t.start();
             ctrl.manageTraffic();

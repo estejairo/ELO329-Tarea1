@@ -5,12 +5,13 @@ public class DetectorRequerimiento{
         return state;
     }
     public void setOn(){
-	state = true;
+    state = true;
+    //System.out.println("Se detecto un requerimiento!");
 
     }
     public void setOff(){
 	state = false;
-
+    //System.out.println("El requerimiento esta siendo atendido!");
     }
     public String toString(){
     	if(state){

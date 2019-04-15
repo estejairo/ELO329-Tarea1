@@ -9,7 +9,7 @@ public class Semaforo3{
 
     int redTime, greenTime;
     
-    static int yellowTime= 3; 
+    static int yellowTime= 6; 
 
     public Semaforo3(){}
 
@@ -44,13 +44,13 @@ public class Semaforo3{
 
     public String toString() {
         if (red){
-            return("2");
+            return("0");
         }
         else if (yellow){
             return("1");
         }
         else{
-            return("0");
+            return("2");
         }
 
     }   
