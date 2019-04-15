@@ -1,6 +1,8 @@
 public class DetectorRequerimiento{
     boolean state;
-    
+    public DetectorRequerimiento(){
+        state=false;
+    }
     public boolean isOn(){
         return state;
     }
