@@ -24,9 +24,9 @@ public class SimuladorEntradas implements ActionListener {
             linea = filename.nextLine();
 	    //placeres - mata - inductivo
 	    String[] seq = linea.split(",");
-	    if((seq[0].compareTo("1"))==1){//prender Sem. mata}
-	    if((seq[1].compareTo("1"))==1){//prender Sem. mata}
-	    if((seq[2].compareTo("1"))==1){sensorInductivo.setOn()}
+	    if((seq[0].compareTo("1"))==0){//prender Sem. mata}
+	    if((seq[1].compareTo("1"))==0){//prender Sem. mata}
+	    if((seq[2].compareTo("1"))==0){sensorInductivo.setOn()}
 
 	    
 // 		  if ((linea.compareTo("1"))==0){   
