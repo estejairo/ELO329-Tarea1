@@ -35,42 +35,22 @@ public class TestStage1{
                 currentRedTime+=1;
                 
             }
-            else if ((currentRedTime == sem.redTime)&&(sem.red)){ //Verifica si esta en rojo y debe cambiar de luz
-                sem.turnYellowLightON();
+            else if ((currentRedTime == sem.redTime)&&(sem.red)){ //Verifica si esta en rojo y debe cambiar a luz Verde
+                sem.turnGreenLightON();
                 currentRedTime = 1;
-                try{
-                    Thread.sleep(1000);
-                } catch(InterruptedException e){
-                    System.out.println(e);
-                }
             }
             else if ((currentYellowTime < sem.yellowTime)&&(sem.yellow)){ //verifica si esta en amarillo y aun queda tiempo
                 currentYellowTime+=1;
-                try{
-                    Thread.sleep(1000);
-                } catch(InterruptedException e){
-                    System.out.println(e);
-                }
             }
-            else if ((currentYellowTime == sem.yellowTime)&&(sem.yellow)){ //Verifica si esta en rojo y debe cambiar de luz
-                sem.turnGreenLightON();
+            else if ((currentYellowTime == sem.yellowTime)&&(sem.yellow)){ //Verifica si esta en Amarillo y debe cambiar a luz Roja
+                sem.turnRedLightON();
                 currentYellowTime = 1;
-                try{
-                    Thread.sleep(1000);
-                } catch(InterruptedException e){
-                    System.out.println(e);
-                }
             }
             else if ((currentGreenTime < sem.greenTime)&&(sem.green)){ //verifica si esta en verde y aun queda tiempo
                 currentGreenTime+=1;
-                try{
-                    Thread.sleep(1000);
-                } catch(InterruptedException e){
-                    System.out.println(e);
-                }
             }
-            else if ((currentGreenTime == sem.greenTime)&&(sem.green)){ //Verifica si esta en rojo y debe cambiar de luz
-                sem.turnRedLightON();
+            else if ((currentGreenTime == sem.greenTime)&&(sem.green)){ //Verifica si esta en Verde y debe cambiar a luz Amarilla
+                sem.turnYellowLightON();
                 currentGreenTime = 1;
             }
 
