@@ -5,6 +5,14 @@
 //  manageTraffic() encargado de operar concretamente las luces y estados
 //  del semaforo.
 //
+//  ATENCION: Al cambiar de luz, el programa se va a dormir por el tiempo
+//  correspondiente, por lo cual deja de imprimir en pantalla hasta despertar.
+//  Cuando retoma la impresion por consola, aparece el tiempo actual transcurrido,
+//  contando el tiempo que estubo dormido. No se engañe!
+//
+//  ATENCION 2: Con el fin de que se distinga la acción de parpadeo respecto a la luz
+//  verde, se imprimira un espacio en blanco cuando la luz verde esta apagada: " ".
+//
 ///////////////////////////////////////////////////////////////////////////
 
 

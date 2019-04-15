@@ -61,13 +61,13 @@ public class Semaforo3{
     // Metodo que habilita la capacidad de imprimir el estado actual del semaforo
     public String toString() {
         if (red){
-            return("2");
+            return("0");
         }
         else if (yellow){
             return("1");
         }
         else{
-            return("0");
+            return("2");
         }
 
     }   
